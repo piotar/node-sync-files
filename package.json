@@ -1,0 +1,24 @@
+{
+  "name": "@piotar/sync-files",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./src/cli.mjs",
+  "bin": {
+    "sync-files": "./src/cli.mjs"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "Piotr Tarasiuk",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piotar/node-sync-files.git"
+  },
+  "bugs": {
+    "url": "https://github.com/piotar/node-sync-files/issues"
+  },
+  "homepage": "https://github.com/piotar/node-sync-files#readme",
+  "dependencies": {
+    "commander": "^9.2.0"
+  }
+}
