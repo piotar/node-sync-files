@@ -14,17 +14,25 @@ export class SyncQueue extends Set {
         this.tick();
     }
 
+    clear() {
+        super.clear();
+        this.handler = undefined;
+    }
+
     tick() {
         clearTimeout(this.handler);
         this.handler = setTimeout(() => {
             this.forEach(item => {
                 const a = resolve(this.source, item);
                 const b = resolve(this.target, item);
-                cpSync(a, b);
+                if (existsSync(a)) {
+                    cpSync(a, b);
+                } else {
+                    rmSync(b, { force: true });
+                }
                 log('Synced', a, '->', b);
             });
             this.clear();
-            this.handler = undefined;
         }, 300);
     }
 
